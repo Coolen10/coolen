@@ -36,7 +36,8 @@ Each value in the vector is spaced evenly apart by 0.2 units.
 list shows their ages: 34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35,
 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,
-18.
+18
+
 a. Access 3rd element, what is the value?
 ```{r}
 ages <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
@@ -208,24 +209,41 @@ subset_ranking
 ```
 
 e. Describe its output.
-
+Each row represents a team’s rank, with descending ranks from 10 to 20, providing a quick overview of team performance in this segment.
 
 9. Download the Hotels-Vienna https://tinyurl.com/Hotels-Vienna
 a. Import the excel file into your RStudio.
 What is the R script?
-
+```{r}
+library(openxlsx)
+hotels_vienna <- read.xlsx("/cloud/project/hotels-vienna.xlsx")
+```
 b. How many dimensions does the dataset have?
 What is the R script? WHat is its output?
-
+```{r}
+dim(hotels_vienna)
+```
 c. Select columns country, neighbourhood,
 price, stars, accomodation_type, and
 ratings. Write the R script.
-
+```{r}
+selected_data <- hotels_vienna [, c("country", "neighbourhood", "price", "stars", "accommodation_type", "rating")]
+```
 d. Save the data as **new.RData to your RStudio. Write the
 R script.
+```{r}
+save(selected_data, file = "new.RData")
+```
+
 
 e. Display the first six rows and last six rows of the
 new.RData. What is the R script?
+```{r}
+load("new.RData")
+head(selected_data, 6)
+tail(selected_data, 6)
+```
+
 
 10. Create a list of ten (10) vegetables you ate during your lifetime. If none, just list down.
 a. Write the R scripts and its output.

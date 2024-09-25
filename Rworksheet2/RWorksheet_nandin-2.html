@@ -385,8 +385,7 @@ vector</code></pre>
 total. The following list shows their ages: 34, 28, 22, 36, 27, 18, 52,
 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17,
 37, 43, 53, 41, 51, 35, 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39,
-19, 30, 61, 54, 58, 26,</li>
-<li></li>
+19, 30, 61, 54, 58, 26, 18</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
 <li>Access 3rd element, what is the value?</li>
@@ -662,37 +661,88 @@ subset_ranking</code></pre>
 ## 19      15       J.K Rowling         90
 ## 20      20         Brad Pitt         25</code></pre>
 <ol start="5" style="list-style-type: lower-alpha">
-<li>Describe its output.</li>
+<li>Describe its output. Each row represents a team’s rank, with
+descending ranks from 10 to 20, providing a quick overview of team
+performance in this segment.</li>
 </ol>
 <ol start="9" style="list-style-type: decimal">
 <li>Download the Hotels-Vienna <a href="https://tinyurl.com/Hotels-Vienna" class="uri">https://tinyurl.com/Hotels-Vienna</a></li>
 </ol>
 <ol style="list-style-type: lower-alpha">
-<li><p>Import the excel file into your RStudio. What is the R
-script?</p></li>
-<li><p>How many dimensions does the dataset have? What is the R script?
-WHat is its output?</p></li>
-<li><p>Select columns country, neighbourhood, price, stars,
-accomodation_type, and ratings. Write the R script.</p></li>
-<li><p>Save the data as **new.RData to your RStudio. Write the R
-script.</p></li>
-<li><p>Display the first six rows and last six rows of the new.RData.
-What is the R script?</p></li>
+<li>Import the excel file into your RStudio. What is the R script?</li>
 </ol>
+<pre class="r"><code>library(openxlsx)
+hotels_vienna &lt;- read.xlsx(&quot;/cloud/project/hotels-vienna.xlsx&quot;)</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>How many dimensions does the dataset have? What is the R script?
+WHat is its output?</li>
+</ol>
+<pre class="r"><code>dim(hotels_vienna)</code></pre>
+<pre><code>## [1] 428  24</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Select columns country, neighbourhood, price, stars,
+accomodation_type, and ratings. Write the R script.</li>
+</ol>
+<pre class="r"><code>selected_data &lt;- hotels_vienna [, c(&quot;country&quot;, &quot;neighbourhood&quot;, &quot;price&quot;, &quot;stars&quot;, &quot;accommodation_type&quot;, &quot;rating&quot;)]</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Save the data as **new.RData to your RStudio. Write the R
+script.</li>
+</ol>
+<pre class="r"><code>save(selected_data, file = &quot;new.RData&quot;)</code></pre>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Display the first six rows and last six rows of the new.RData. What
+is the R script?</li>
+</ol>
+<pre class="r"><code>load(&quot;new.RData&quot;)
+head(selected_data, 6)</code></pre>
+<pre><code>##   country neighbourhood price stars accommodation_type rating
+## 1 Austria   17. Hernals    81     4          Apartment    4.4
+## 2 Austria   17. Hernals    81     4              Hotel    3.9
+## 3 Austria    Alsergrund    85     4              Hotel    3.7
+## 4 Austria    Alsergrund    83     3              Hotel    4.0
+## 5 Austria    Alsergrund    82     4              Hotel    3.9
+## 6 Austria    Alsergrund   229     5          Apartment    4.8</code></pre>
+<pre class="r"><code>tail(selected_data, 6)</code></pre>
+<pre><code>##     country neighbourhood price stars accommodation_type rating
+## 423 Austria        Wieden    73   3.0              Hotel    3.4
+## 424 Austria        Wieden   109   3.0          Apartment    5.0
+## 425 Austria        Wieden   185   5.0              Hotel    4.3
+## 426 Austria        Wieden   100   4.0              Hotel    4.4
+## 427 Austria        Wieden    58   3.0              Hotel    3.2
+## 428 Austria        Wieden   110   3.5          Apartment    4.0</code></pre>
 <ol start="10" style="list-style-type: decimal">
 <li>Create a list of ten (10) vegetables you ate during your lifetime.
 If none, just list down.</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
-<li><p>Write the R scripts and its output.</p></li>
-<li><p>Add 2 additional vegetables after the last vegetables in the
-list. What is the R script and its output?</p></li>
-<li><p>Add 4 additional vegetables after index 5. How many datapoints
-does your vegetable list have? What is the R script and its
-output?</p></li>
-<li><p>Remove the vegetables in index 5, 10, and 15. How many vegetables
-were left? Write the codes and its output.</p></li>
+<li>Write the R scripts and its output.</li>
 </ol>
+<pre class="r"><code>vegetables &lt;- c(&quot;Squash&quot;, &quot;Potato&quot;, &quot;Celery&quot;, &quot;Tomato&quot;, &quot;Cucumber&quot;, &quot;Egg Plant&quot;, &quot;Lettuce&quot;, &quot;Bitter Gourd&quot;)
+vegetables</code></pre>
+<pre><code>## [1] &quot;Squash&quot;       &quot;Potato&quot;       &quot;Celery&quot;       &quot;Tomato&quot;       &quot;Cucumber&quot;    
+## [6] &quot;Egg Plant&quot;    &quot;Lettuce&quot;      &quot;Bitter Gourd&quot;</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Add 2 additional vegetables after the last vegetables in the list.
+What is the R script and its output?</li>
+</ol>
+<pre class="r"><code>vegetables &lt;- c(vegetables, &quot;Ginger&quot;, &quot;Bean&quot;)
+vegetables</code></pre>
+<pre><code>##  [1] &quot;Squash&quot;       &quot;Potato&quot;       &quot;Celery&quot;       &quot;Tomato&quot;       &quot;Cucumber&quot;    
+##  [6] &quot;Egg Plant&quot;    &quot;Lettuce&quot;      &quot;Bitter Gourd&quot; &quot;Ginger&quot;       &quot;Bean&quot;</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Add 4 additional vegetables after index 5. How many datapoints does
+your vegetable list have? What is the R script and its output?</li>
+</ol>
+<pre class="r"><code>vegetables &lt;- append(vegetables, c(&quot;Cabagge&quot;, &quot;Green Chili&quot;, &quot;Sprout&quot;, &quot;Garlic&quot;), after = 5)
+length(vegetables)</code></pre>
+<pre><code>## [1] 14</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Remove the vegetables in index 5, 10, and 15. How many vegetables
+were left? Write the codes and its output.</li>
+</ol>
+<pre class="r"><code>vegetables &lt;- vegetables[-c(5, 10, 15)]
+length(vegetables)</code></pre>
+<pre><code>## [1] 12</code></pre>
 
 
 
