@@ -20,24 +20,29 @@ Based on the above vector LETTERS:
 a. You need to produce a vector that contains the first 11 letters.
 ```{r}
 first <- LETTERS[1:11]
+first
 ```
 b. Produce a vector that contains the odd numbered letters.
 ```{r}
 odd <- LETTERS[seq(1, length(LETTERS), by = 2)]
+odd
 ```
 c. Produce a vector that contains the vowels
 ```{r}
 vowels <- LETTERS[LETTERS %in% c("A", "E", "I", "O", "U")]
+vowels
 ```
 Based on the above vector letters:
 
 d. Produce a vector that contains the last 5 lowercase letters.
 ```{r}
 last <- letters[22:26]
+last
 ```
 e. Produce a vector that contains letters between 15 to 24 letters in lowercase.
 ```{r}
 range <- letters[15:24]
+range
 ```
 2. Create a vector(not a dataframe) with the average temperatures in April for Tuguegarao City, Manila, Iloilo City, Tacloban, Samal Island, and Davao City. The average
 temperatures in Celcius are 42, 39, 34, 34, 30, and 27 degrees.
